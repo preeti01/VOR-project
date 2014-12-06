@@ -24,15 +24,13 @@ import javax.swing.KeyStroke;
 public class App
 {
 	public static final String APP_NAME = "VOR";
-    private JFrame frame;
+        private JFrame frame;
 	private Display display;
 
 	public App()
 	{
-		// Our GUI
 		display = new Display();
 
-		// Make actual frame
 		initializeFrame();
 	}
 
@@ -44,7 +42,8 @@ public class App
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new WindowAdapter()
 		{
-			public void windowClosing(WindowEvent e) {
+			public void windowClosing(WindowEvent e) 
+			{
 				handleQuit();
 			}
 		});
@@ -56,14 +55,6 @@ public class App
 
 	Action exitAction = new AbstractAction("Exit")
 	{
-		private static final long serialVersionUID = 1L;
-
-		{
-			putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(
-					KeyEvent.VK_Q, Toolkit.getDefaultToolkit()
-							.getMenuShortcutKeyMask()));
-		}
-
 		public void actionPerformed(ActionEvent e)
 		{
 			handleQuit();
@@ -74,7 +65,7 @@ public class App
 
 	public void handleQuit()
 	{
-		// We can intercept window close and perform any cleanup here
+		
 		Runtime.getRuntime().exit(0);
 	}
 
