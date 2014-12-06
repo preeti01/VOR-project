@@ -22,7 +22,6 @@ public class Radio {
 		if (timed) {
 			new Timer().scheduleAtFixedRate(new TimerTask() {
 
-
 				public void run() {
 					if (Angle.randomInt(0, 3) == 0) {
 						radial = Angle.normalizeAngle(radial + Angle.randomInt(-2, 2));
@@ -37,7 +36,14 @@ public class Radio {
 	public void addListener(RadioListener listener) {
         listeners.add(listener);
     }
-
+ 
+ public void reset() {
+		generateRandomRadial();
+		//generateRandomStationID();
+		generateRandomOverStation();
+		
+		notifyListeners();
+	}
 
 
 	private void notifyListeners() {
@@ -45,7 +51,13 @@ public class Radio {
         	listener.incomingData();
         }
 	}
-
+ private void generateRandomRadial() {
+		this.radial = Utils.randomInt(0, 359);
+	}
+	
+	private void generateRandomOverStation() {
+		this.overStation = (Utils.randomInt(0, 25) == 0);
+	}
 
 
 	public int getRadial() {
