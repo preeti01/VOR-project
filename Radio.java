@@ -14,8 +14,7 @@ public class Radio {
 	protected boolean overStation;
 
 	public Radio() {
-		this(false);
-	}
+			}
 
 	public Radio(boolean timed) {
 		listeners = new ArrayList<>();
