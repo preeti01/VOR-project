@@ -52,7 +52,6 @@ public class App
 	}
 
 
-
 	Action exitAction = new AbstractAction("Exit")
 	{
 		public void actionPerformed(ActionEvent e)
@@ -60,8 +59,6 @@ public class App
 			handleQuit();
 		}
 	};
-
-
 
 	public void handleQuit()
 	{
